@@ -47,4 +47,10 @@ object MyModule {
    */
   def uncurry[A, B, C](f: A => B => C): (A, B) => C = (a, b) => f(a)(b)
 
+  /*
+   * EXERCISE 2.5
+   * 2つの関数を合成する高階関数を実装せよ。
+   */
+  def compose[A, B, C](f: B => C, g: A => B): A => C = a => f(g(a))
+
 }

@@ -52,5 +52,12 @@ class GettingStartedSpec extends Specification {
       sum(1, 1) mustEqual 2
       sum(1, 2) mustEqual 3
     }
+
+    "EXERCISE 2.5 compose" >> {
+      val ceilSqrt = compose(Math.sqrt, Math.ceil)
+
+      ceilSqrt(4.0) mustEqual 2.0
+      ceilSqrt(8.6) mustEqual 3.0
+    }
   }
 }
