@@ -35,5 +35,14 @@ class GettingStartedSpec extends Specification {
       isSorted(Array("a", "b", "c", "e", "d"), orderedString) mustEqual false
       isSorted(Array("c", "b", "a", "e", "d"), orderedString) mustEqual false
     }
+
+    "EXERCISE 2.3 curry" >> {
+      def sum(x: Int, y: Int): Int = {
+        x + y
+      }
+      val increment = curry(sum)(1)
+      increment(1) mustEqual 2
+      increment(2) mustEqual 3
+    }
   }
 }
