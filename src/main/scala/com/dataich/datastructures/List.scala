@@ -35,4 +35,13 @@ object List {
     case Cons(_, xs) => xs
     case _ => Nil
   }
+
+  /*
+   * EXERCISE 3.3
+   * EXERCISE 3.2と同じ考え方に基づいて、Listの最初の要素を別の値と置き換えるsetHead関数を実装せよ。
+   */
+  def setHead[A](ls: List[A], a: A): List[A] = ls match {
+    case Cons(_, xs) => Cons(a, xs)
+    case _ => Nil
+  }
 }

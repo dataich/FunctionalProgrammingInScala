@@ -28,5 +28,12 @@ class ListSpec extends Specification {
       tail(List(1)) mustEqual Nil
       tail(List(1, 2)) mustEqual List(2)
     }
+
+    "EXERCISE 3.3 setHead" >> {
+      setHead(List(1, 2, 3), 4) mustEqual List(4, 2, 3)
+      setHead(List(3), 4) mustEqual List(4)
+      setHead(List(), 1) mustEqual List()
+      setHead(Nil, 1) mustEqual Nil
+    }
   }
 }
