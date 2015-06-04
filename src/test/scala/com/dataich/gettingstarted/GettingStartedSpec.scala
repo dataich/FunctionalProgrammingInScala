@@ -44,5 +44,13 @@ class GettingStartedSpec extends Specification {
       increment(1) mustEqual 2
       increment(2) mustEqual 3
     }
+
+    "EXERCISE 2.4 uncurry" >> {
+      val sum = uncurry { x: Int => y: Int =>
+        x + y
+      }
+      sum(1, 1) mustEqual 2
+      sum(1, 2) mustEqual 3
+    }
   }
 }
