@@ -21,5 +21,12 @@ class ListSpec extends Specification {
 
       x mustEqual 3
     }
+
+    "EXERCISE 3.2 tail" >> {
+      tail(List(1, 2, 3)) mustEqual List(2, 3)
+      tail(List(1)) mustEqual List()
+      tail(List(1)) mustEqual Nil
+      tail(List(1, 2)) mustEqual List(2)
+    }
   }
 }

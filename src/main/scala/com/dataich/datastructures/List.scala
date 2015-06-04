@@ -26,4 +26,13 @@ object List {
     if (as.isEmpty) Nil
     else Cons(as.head, apply(as.tail: _*))
   }
+
+  /*
+   * EXERCISE 3.2
+   * Listの最初の要素を削除する関数tailを実装せよ。この関数の実行時間が一定であることに注意。
+   */
+  def tail[A](ls: List[A]): List[A] = ls match {
+    case Cons(_, xs) => xs
+    case _ => Nil
+  }
 }
