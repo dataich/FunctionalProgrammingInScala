@@ -42,5 +42,11 @@ class ListSpec extends Specification {
       drop(3, List(1, 2, 3)) mustEqual List()
       drop(3, List(1, 2, 3)) mustEqual Nil
     }
+
+    "EXERCISE 3.5 dropWhile" >> {
+      dropWhile(List(1, 2, 3), { a: Int => a == 1 }) mustEqual List(2, 3)
+      dropWhile(List(1, 2, 3), { a: Int => a == 2 }) mustEqual List(1, 2, 3)
+      dropWhile(List(1, 2, 3), { a: Int => a <= 2 }) mustEqual List(3)
+    }
   }
 }

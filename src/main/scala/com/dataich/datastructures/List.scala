@@ -57,4 +57,13 @@ object List {
       case _ => ls
     }
   }
+
+  /*
+   * EXERCISE 3.5
+   * 述語とマッチする場合に限り、Listからその要素までの要素を削除するdropWhileを実装せよ。
+   */
+  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
+    case Cons(x, xs) if f(x) => dropWhile(xs, f)
+    case _ => l
+  }
 }
