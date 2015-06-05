@@ -44,4 +44,17 @@ object List {
     case Cons(_, xs) => Cons(a, xs)
     case _ => Nil
   }
+
+  /*
+   * EXERCISE 3.4
+   * tailを一般化して、リストの先頭からn個の要素を削除するdropという関数に書きかえよ。
+   * この関数の実行時間は削除する要素の数にのみ比例することに注意。List全体のコピーを作成する必要はない。
+   */
+  def drop[A](n: Int, ls: List[A]): List[A] = {
+    if (n == 0) ls
+    else ls match {
+      case Cons(_, xs) => drop(n - 1, xs)
+      case _ => ls
+    }
+  }
 }

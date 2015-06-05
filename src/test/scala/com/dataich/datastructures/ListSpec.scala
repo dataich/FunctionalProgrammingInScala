@@ -35,5 +35,12 @@ class ListSpec extends Specification {
       setHead(List(), 1) mustEqual List()
       setHead(Nil, 1) mustEqual Nil
     }
+
+    "EXERCISE 3.4 drop" >> {
+      drop(1, List(1, 2, 3)) mustEqual List(2, 3)
+      drop(2, List(1, 2, 3)) mustEqual List(3)
+      drop(3, List(1, 2, 3)) mustEqual List()
+      drop(3, List(1, 2, 3)) mustEqual Nil
+    }
   }
 }
