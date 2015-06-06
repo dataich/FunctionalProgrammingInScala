@@ -66,4 +66,19 @@ object List {
     case Cons(x, xs) if f(x) => dropWhile(xs, f)
     case _ => l
   }
+
+  /*
+   * EXERCISE 3.6
+   * Listの末尾を除くすべての要素で構成されたListを返すinit関数を実装せよ。
+   * List(1, 2, 3, 4)が与えられた場合、initはList(1, 2, 3)を返す。
+   *
+   * Q.この関数をtailのように一定時間で実装できないのはなぜか。
+   * 
+   * A.List全体を走査するため、Listの要素数に比例した時間がかかるため。
+   */
+  def init[A](ls: List[A]): List[A] = ls match {
+    case Cons(x, Nil) => Nil
+    case Cons(x, xs) => Cons(x, init(xs))
+    case _ => Nil
+  }
 }
