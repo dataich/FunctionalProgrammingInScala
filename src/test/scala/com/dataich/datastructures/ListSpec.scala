@@ -53,5 +53,9 @@ class ListSpec extends Specification {
       init(List(1, 2, 3, 4)) mustEqual List(1, 2, 3)
       init(List(1, 2, 3, 4, 5)) mustEqual List(1, 2, 3, 4)
     }
+
+    "EXERCISE 3.8 pass Nil and Cons to foldRight" >> {
+      foldRight(List(1, 2, 3), Nil: List[Int])(Cons(_, _)) mustEqual List(1, 2, 3)
+    }
   }
 }

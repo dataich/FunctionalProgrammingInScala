@@ -97,4 +97,13 @@ object List {
    * A.foldRightは関数fを実行する前にその引数を評価する実装になっている。
    * このため全てのリストを走査し終えないと関数fが実行されないため、評価のしようがない。
    */
+
+  /*
+   * EXERCISE 3.8
+   * Q.foldRight(List(1, 2, 3), Nil: List[Int])(Cons(_, _))のように、NilおよびCons自体をfoldRightに渡した場合はどうなるか。
+   * これがfoldRightとListのデータコンストラクタとの関係について何を表していると思うか。
+   *
+   * A.foldRightに渡すListとfoldRightが返すListが同じ結果となる。
+   * foldRightはNilが渡されるとzを返し、Consが渡されるとfを返すため、当然同じ結果となる。
+   */
 }
