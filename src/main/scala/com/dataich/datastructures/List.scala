@@ -22,9 +22,16 @@ object List {
     case Cons(x, xs) => x * product(xs)
   }
 
+  def product2(ns: List[Double]) = foldRight(ns, 1.0)(_ * _)
+
   def apply[A](as: A*): List[A] = {
     if (as.isEmpty) Nil
     else Cons(as.head, apply(as.tail: _*))
+  }
+
+  def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B = as match {
+    case Nil => z
+    case Cons(x, xs) => f(x, foldRight(xs, z)(f))
   }
 
   /*
@@ -81,4 +88,13 @@ object List {
     case Cons(x, xs) => Cons(x, init(xs))
     case _ => Nil
   }
+
+  /*
+   * EXERCISE 3.7
+   * Q.foldRightを使って実装されたproductは、0.0を検出した場合に、直ちに再帰を中止して0.0を返せるか。その理由を説明せよ。
+   * 大きなリストでfoldRightを呼び出した場合の短絡の仕組みについて検討せよ。
+   *
+   * A.foldRightは関数fを実行する前にその引数を評価する実装になっている。
+   * このため全てのリストを走査し終えないと関数fが実行されないため、評価のしようがない。
+   */
 }
