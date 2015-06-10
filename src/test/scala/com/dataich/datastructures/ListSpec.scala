@@ -57,5 +57,12 @@ class ListSpec extends Specification {
     "EXERCISE 3.8 pass Nil and Cons to foldRight" >> {
       foldRight(List(1, 2, 3), Nil: List[Int])(Cons(_, _)) mustEqual List(1, 2, 3)
     }
+
+    "EXERCISE 3.9 length" >> {
+      List.length(List(1, 2, 3)) mustEqual 3
+      List.length(List(1, 2, 3, 4, 5)) mustEqual 5
+      List.length(Nil) mustEqual 0
+      List.length(List()) mustEqual 0
+    }
   }
 }

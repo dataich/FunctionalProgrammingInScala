@@ -106,4 +106,11 @@ object List {
    * A.foldRightに渡すListとfoldRightが返すListが同じ結果となる。
    * foldRightはNilが渡されるとzを返し、Consが渡されるとfを返すため、当然同じ結果となる。
    */
+
+  /*
+   * EXERCISE 3.9
+   * foldRightを使ってリストの長さを計算せよ。
+   */
+  def length[A](as: List[A]): Int = foldRight(as, 0)((_, b) => 1 + b)
+
 }
