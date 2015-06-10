@@ -64,5 +64,10 @@ class ListSpec extends Specification {
       List.length(Nil) mustEqual 0
       List.length(List()) mustEqual 0
     }
+
+    "EXERCISE 3.10 foldLeft" >> {
+      foldLeft(List(1, 2, 3), 0)(_ + _) mustEqual 6
+      foldLeft(List(1, 2, 3), 1)(_ * _) mustEqual 6
+    }
   }
 }

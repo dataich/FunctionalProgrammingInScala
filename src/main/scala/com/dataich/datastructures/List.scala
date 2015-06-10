@@ -113,4 +113,15 @@ object List {
    */
   def length[A](as: List[A]): Int = foldRight(as, 0)((_, b) => 1 + b)
 
+  /*
+   * EXERCISE 3.10
+   * このfoldRightの実装は末尾再帰ではなく、リストが大きい場合はStackOverflowErrorになってしまう。
+   * そうした状況であると仮定し、リスト再帰の総称関数foldLeftを実装せよ。
+   */
+  @annotation.tailrec
+  def foldLeft[A, B](as: List[A], z: B)(f: (B, A) => B): B = as match {
+    case Nil => z
+    case Cons(x, xs) => foldLeft(xs, f(z, x))(f)
+  }
+
 }
