@@ -134,4 +134,10 @@ object List {
 
   def length2[A](ls: List[A]) = foldLeft(ls, 0)((b, _) => 1 + b)
 
+  /*
+   * EXERCISE 3.12
+   * 要素が逆に並んだリストを返す関数を記述せよ。
+   */
+  def reverse[A](ls: List[A]) = foldLeft(ls, Nil: List[A])((b, a) => Cons(a, b))
+
 }

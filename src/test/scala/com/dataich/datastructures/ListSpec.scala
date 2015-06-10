@@ -85,5 +85,11 @@ class ListSpec extends Specification {
       length2(List()) mustEqual 0
       length2(Nil) mustEqual 0
     }
+
+    "EXERCISE 3.12 reverse" >> {
+      reverse(List(1, 2, 3)) mustEqual List(3, 2, 1)
+      reverse(List(1)) mustEqual List(1)
+      reverse(List()) mustEqual List()
+    }
   }
 }
