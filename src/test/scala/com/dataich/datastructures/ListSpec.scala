@@ -69,5 +69,21 @@ class ListSpec extends Specification {
       foldLeft(List(1, 2, 3), 0)(_ + _) mustEqual 6
       foldLeft(List(1, 2, 3), 1)(_ * _) mustEqual 6
     }
+
+    "EXERCISE 3.11 sum3" >> {
+      sum3(List(1, 2, 3)) mustEqual 6
+      sum3(List(2, 3, 0)) mustEqual 5
+    }
+
+    "EXERCISE 3.11 product3" >> {
+      product3(List(1, 2, 3)) mustEqual 6
+      product3(List(1, 2, 0)) mustEqual 0
+    }
+
+    "EXERCISE 3.11 length2" >> {
+      length2(List(1, 2, 3)) mustEqual 3
+      length2(List()) mustEqual 0
+      length2(Nil) mustEqual 0
+    }
   }
 }

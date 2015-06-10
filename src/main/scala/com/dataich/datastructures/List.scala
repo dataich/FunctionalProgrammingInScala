@@ -124,4 +124,14 @@ object List {
     case Cons(x, xs) => foldLeft(xs, f(z, x))(f)
   }
 
+  /*
+   * EXERCISE 3.11
+   * foldLeftを使ってsum、product、およびリストの長さを計算する関数を記述せよ。
+   */
+  def sum3(ls: List[Int]) = foldLeft(ls, 0)(_ + _)
+
+  def product3(ls: List[Double]) = foldLeft(ls, 1.0)(_ * _)
+
+  def length2[A](ls: List[A]) = foldLeft(ls, 0)((b, _) => 1 + b)
+
 }
