@@ -9,8 +9,8 @@ class GettingStartedSpec extends WordSpec with Matchers {
 
   import MyModule._
 
-  "MyModule" should {
-    "EXERCISE 2.1 fib" in {
+  "EXERCISE 2.1" should {
+    "fib" in {
       fib(0) shouldBe 0
       fib(1) shouldBe 1
       fib(2) shouldBe 1
@@ -18,8 +18,10 @@ class GettingStartedSpec extends WordSpec with Matchers {
       fib(4) shouldBe 3
       fib(5) shouldBe 5
     }
+  }
 
-    "EXERCISE 2.2 isSorted" in {
+  "EXERCISE 2.2" should {
+    "isSorted" in {
       def orderedInt(a: Int, b: Int): Boolean = {
         Ordering.Int.lteq(a, b)
       }
@@ -35,8 +37,10 @@ class GettingStartedSpec extends WordSpec with Matchers {
       isSorted(Array("a", "b", "c", "e", "d"), orderedString) shouldBe false
       isSorted(Array("c", "b", "a", "e", "d"), orderedString) shouldBe false
     }
+  }
 
-    "EXERCISE 2.3 curry" in {
+  "EXERCISE 2.3" should {
+    "curry" in {
       def sum(x: Int, y: Int): Int = {
         x + y
       }
@@ -44,16 +48,20 @@ class GettingStartedSpec extends WordSpec with Matchers {
       increment(1) shouldBe 2
       increment(2) shouldBe 3
     }
+  }
 
-    "EXERCISE 2.4 uncurry" in {
+  "EXERCISE 2.4" should {
+    "uncurry" in {
       val sum = uncurry { x: Int => y: Int =>
         x + y
       }
       sum(1, 1) shouldBe 2
       sum(1, 2) shouldBe 3
     }
+  }
 
-    "EXERCISE 2.5 compose" in {
+  "EXERCISE 2.5" should {
+    "compose" in {
       val ceilSqrt = compose(Math.sqrt, Math.ceil)
 
       ceilSqrt(4.0) shouldBe 2.0
