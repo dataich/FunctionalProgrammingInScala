@@ -37,5 +37,28 @@ object RNG {
     val (i, newRng) = rng.nextInt
     (i / (Int.MaxValue.toDouble + 1), newRng)
   }
+
+  /*
+   * EXERCISE 6.3
+   * ペア(Int, Double)、ペア(Double, Int)、および3要素のタプル(Double, Double, Double)を生成する関数を記述せよ。
+   * すでに作成済みの関数を再利用できるはずだ。
+   */
+  def intDouble(rng: RNG): ((Int, Double), RNG) = {
+    val (i, rng1) = rng.nextInt
+    val (d, rng2) = double(rng1)
+    ((i, d), rng2)
+  }
+
+  def doubleInt(rng: RNG): ((Double, Int), RNG) = {
+    val ((i, d), newRng) = intDouble(rng)
+    ((d, i), newRng)
+  }
+
+  def double3(rng: RNG): ((Double, Double, Double), RNG) = {
+    val (d1, rng1) = double(rng)
+    val (d2, rng2) = double(rng1)
+    val (d3, rng3) = double(rng2)
+    ((d1, d2, d3), rng3)
+  }
 }
 
