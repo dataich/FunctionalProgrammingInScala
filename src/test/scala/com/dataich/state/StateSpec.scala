@@ -11,5 +11,9 @@ class StateSpec extends WordSpec with Matchers {
     "EXERCISE 6.1 nonNegativeInt" in {
       RNG.nonNegativeInt(RNG.Simple(1L)) shouldBe(384748, RNG.Simple(25214903928L))
     }
+
+    "EXERCISE 6.2 double" in {
+      RNG.double(RNG.Simple(1L)) shouldBe(1.7916224896907806E-4, RNG.Simple(25214903928L))
+    }
   }
 }

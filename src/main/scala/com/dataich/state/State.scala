@@ -27,5 +27,15 @@ object RNG {
     val (i, newRng) = rng.nextInt
     (if (i < 0) -(i + 1) else i, newRng)
   }
+
+  /*
+   * EXERCISE 6.2
+   * 0 ~ 1（1を含まない）のDouble型の値を生成する関数を記述せよ。
+   * Int.MaxValueを使って正の整数の最大値を取得できることと、x.toDoubleを使ってx: IntをDoubleに変換できることに注意。
+   */
+  def double(rng: RNG): (Double, RNG) = {
+    val (i, newRng) = rng.nextInt
+    (i / (Int.MaxValue.toDouble + 1), newRng)
+  }
 }
 
