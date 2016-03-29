@@ -60,5 +60,19 @@ object RNG {
     val (d3, rng3) = double(rng2)
     ((d1, d2, d3), rng3)
   }
+
+  /*
+   * EXERCISE 6.4
+   * ランダムな整数のリストを生成する関数を記述せよ。
+   */
+  def ints(count: Int)(rng: RNG): (List[Int], RNG) = {
+    if (count == 0) {
+      (Nil, rng)
+    } else {
+      val (i, rng1) = rng.nextInt
+      val (ls, rng2) = ints(count - 1)(rng1)
+      (i :: ls, rng2)
+    }
+  }
 }
 
