@@ -18,6 +18,13 @@ object RNG {
     }
   }
 
+  type Rand[+A] = RNG => (A, RNG)
+
+  def map[A, B](s: Rand[A])(f: A => B): Rand[B] = rng => {
+    val (a, rng2) = s(rng)
+    (f(a), rng2)
+  }
+
   /*
    * EXERCISE 6.1
    * RNG.nextIntを使って0 ~ Int.maxValue（0とInt.maxValueを含む）のランダムな整数を生成する関数を記述せよ。
@@ -74,5 +81,12 @@ object RNG {
       (i :: ls, rng2)
     }
   }
+
+  /*
+   * EXERCISE 6.5
+   * mapを使ってdoubleをもう少し要領よく実装し直せ。EXERCISE 6.2を参照。
+   */
+  def doubleImproved: Rand[Double] = map(nonNegativeInt)(_ / (Int.MaxValue.toDouble + 1))
+
 }
 
