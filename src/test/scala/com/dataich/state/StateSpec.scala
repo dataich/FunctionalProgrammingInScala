@@ -42,4 +42,10 @@ class StateSpec extends WordSpec with Matchers {
       RNG.doubleImproved(RNG.Simple(1L)) shouldBe(1.7916224896907806E-4, RNG.Simple(25214903928L))
     }
   }
+
+  "EXERCISE 6.6" should {
+    "map2" in {
+      RNG.map2(RNG.nonNegativeInt, RNG.double)((_, _))(RNG.Simple(1L)) shouldBe((384748, -0.5360936461947858), RNG.Simple(206026503483683L))
+    }
+  }
 }
